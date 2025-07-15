@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 fun MyBox() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(modifier = Modifier.fillMaxSize().background(Color.LightGray), contentAlignment = Alignment.Center) {
         Box(modifier = Modifier
             .size(200.dp)
             .background(Color.Red)
