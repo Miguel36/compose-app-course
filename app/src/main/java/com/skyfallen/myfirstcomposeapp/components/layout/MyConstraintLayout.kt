@@ -10,7 +10,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Cyan
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.Red
+import androidx.compose.ui.graphics.Color.Companion.Yellow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
@@ -100,5 +103,34 @@ fun ConstraintBarrier(modifier: Modifier) {
             start.linkTo(barrier)
             top.linkTo(yellowBox.bottom)
         })
+    }
+}
+
+@Preview
+@Composable
+fun ConstraintChain(modifier: Modifier = Modifier) {
+    ConstraintLayout(modifier = modifier.fillMaxSize()) {
+        val (blackBox, cyanBox, yellowBox) = createRefs()
+
+        Box(Modifier.size(145.dp).background(Color.Black).constrainAs(blackBox) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(parent.top)
+            bottom.linkTo(cyanBox.top)
+        })
+        Box(Modifier.size(145.dp).background(Cyan).constrainAs(cyanBox) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(blackBox.bottom)
+            bottom.linkTo(yellowBox.top)
+        })
+        Box(Modifier.size(145.dp).background(Yellow).constrainAs(yellowBox) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(cyanBox.bottom)
+            bottom.linkTo(parent.bottom)
+        })
+
+        createVerticalChain(blackBox, cyanBox, yellowBox, chainStyle = ChainStyle.Spread)
     }
 }
