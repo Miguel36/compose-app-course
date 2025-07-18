@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 
@@ -38,5 +39,26 @@ fun MyBasicConstraintLayout(modifier: Modifier) {
             bottom.linkTo(parent.bottom)
         })
 
+    }
+}
+
+/**
+ * Un GuideLine permite crear una guía (Espacio) invisible superior, inferior, al inicio o al final de la
+ * pantalla, deacuerdo al porcentaje que le indiquemos. En este caso tiene un 10% tanto en la parte
+ * superior, como al inicio (izquierda) de la pantalla. Esto permite que las vistas que añadamos se
+ * pueadn alinear después de esa guía y sin importar el tamaño del dispositivo, tomaría el 10 % lo que haría
+ * que la construcción de los diseños sea más responsive.
+ */
+@Composable
+fun ConstraintExampleGuide(modifier: Modifier) {
+    ConstraintLayout(Modifier.fillMaxSize()) {
+        val boxRed = createRef()
+        val guideStart = createGuidelineFromStart(0.1f)
+        val guideTop = createGuidelineFromTop(0.1f)
+
+        Box(Modifier.size(80.dp).background(Red).constrainAs(boxRed) {
+            start.linkTo(guideStart)
+            top.linkTo(guideTop)
+        })
     }
 }
