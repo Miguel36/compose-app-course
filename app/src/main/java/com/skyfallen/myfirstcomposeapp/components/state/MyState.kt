@@ -43,7 +43,18 @@ fun MyStateTwo(modifier: Modifier) {
     var number by rememberSaveable { mutableIntStateOf(0) }
 
     Column(modifier = modifier) {
-        Text(text = "Púlsame: $number", Modifier.clickable { number += 1 })
-        Text(text = "Púlsame: $number", Modifier.clickable { number += 1 })
+        MyStateHosting1(number, onClick = { number += 1 })
+        MyStateHosting2(number) { number += 1 }
     }
 }
+
+@Composable
+fun MyStateHosting1(number: Int, onClick: () -> Unit) {
+    Text(text = "Púlsame: $number", Modifier.clickable { onClick() })
+}
+
+@Composable
+fun MyStateHosting2(number: Int, onClick: () -> Unit) {
+    Text(text = "Púlsame: $number", Modifier.clickable { onClick() })
+}
+
