@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -28,7 +29,7 @@ fun MyTextFieldParent(modifier: Modifier) {
     var user by remember { mutableStateOf("Miguel Angel") }
     var value by remember { mutableStateOf("") }
 
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(top = 16.dp, start = 6.dp)) {
         MyTextField(user = user) { user = it }
         Spacer(Modifier.height(10.dp))
 
@@ -39,6 +40,9 @@ fun MyTextFieldParent(modifier: Modifier) {
         Spacer(Modifier.height(10.dp))
 
         MyPasswordTextField(value) { value = it }
+        Spacer(Modifier.height(10.dp))
+
+        MyOutlinedTextField(value) { value = it }
     }
 }
 
@@ -88,4 +92,12 @@ fun MyPasswordTextField(value: String, onValueChange: (String) -> Unit) {
         }
 
     )
+}
+
+/**
+ * En funcionalidad es lo mismo que un TextField, solo cambia el diseño con el que viene por defecto.
+ */
+@Composable
+fun MyOutlinedTextField(value: String, onTextChanged: (String) -> Unit) {
+    OutlinedTextField(value = value, onValueChange = { onTextChanged(it) })
 }
