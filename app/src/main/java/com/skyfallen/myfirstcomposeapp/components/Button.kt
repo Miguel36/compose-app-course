@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -19,6 +21,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun MyButtons(modifier: Modifier) {
     Column(modifier = modifier) {
+        // Alto énfasis
         Button(
             onClick = { Log.i("OnClick Sky", "OnClick Button") },
             Modifier
@@ -37,6 +40,7 @@ fun MyButtons(modifier: Modifier) {
             Text(text = "Púlsame", color = Color.Blue)
         }
 
+        // Medio énfasis
         OutlinedButton(
             onClick = {},
             colors = ButtonDefaults.outlinedButtonColors(
@@ -47,6 +51,13 @@ fun MyButtons(modifier: Modifier) {
             Text("Outlined", color = Color.Black)
         }
 
+        // Bajo énfasis
         TextButton(onClick = {}) { Text(text = "TextButton") }
+
+        // Lo unico relevante, es que es un botón con más elevación por defecto
+        ElevatedButton(onClick = {}) { Text("Elevated Button") }
+
+        // Medio énfasis, la unica diferencia respecto al button normal es que su color es mas claro
+        FilledTonalButton(onClick = {}) { Text("FilledTonalButton") }
     }
 }
