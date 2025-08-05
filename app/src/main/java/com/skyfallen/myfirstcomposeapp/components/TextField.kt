@@ -3,7 +3,7 @@ package com.skyfallen.myfirstcomposeapp.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,12 +14,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MyTextField(modifier: Modifier) {
+fun MyTextFieldParent(modifier: Modifier) {
+    var user by remember { mutableStateOf("Miguel Angel") }
+    var value by remember { mutableStateOf("") }
+
     Column(modifier = modifier) {
-        var text by remember { mutableStateOf("") }
-        TextField(text, onValueChange = {newValue -> text = newValue})
+        MyTextField(user = user) { user = it }
         Spacer(Modifier.height(10.dp))
-        // This is the same as the example above
-        TextField(text, onValueChange = {text = it})
+        MySecondTextField(value, { value= it })
     }
+}
+
+@Composable
+fun MyTextField(user: String, onUserChange: (String) -> Unit) {
+    TextField(user, onValueChange = { onUserChange(it) }, readOnly = user.isEmpty())
+}
+
+@Composable
+fun MySecondTextField(user: String, onUserChange: (String) -> Unit) {
+    TextField(user, onValueChange = { onUserChange(it) }, label = { Text("Ingresa tu nombre") })
 }
