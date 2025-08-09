@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,5 +62,15 @@ fun MyNetworkImage(modifier: Modifier) {
             onError = { Log.i("image", "ha ocurrido un error ${it.result.throwable.message}") }
         )
     }
+}
 
+@Preview
+@Composable
+fun MyIcon() {
+    Icon(
+        painter = painterResource(R.drawable.ic_smile),
+        contentDescription = null,
+        Modifier.size(200.dp),
+        tint = Color.Yellow
+    )
 }
