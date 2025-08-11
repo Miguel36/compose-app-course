@@ -26,6 +26,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.dp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
+import com.skyfallen.myfirstcomposeapp.R
 
 @Composable
 fun MyProgress(modifier: Modifier) {
@@ -85,5 +90,14 @@ fun MyProgressAdvance(modifier: Modifier) {
         Button(onClick = {isLoading = !isLoading}) {
             Text(text = "Show/Hide loading")
         }
+    }
+}
+
+@Composable
+fun MyLottieAnimationProgress(modifier: Modifier) {
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.hourglass_loading))
+
+    Column(modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+        LottieAnimation(composition = composition, iterations = LottieConstants.IterateForever)
     }
 }
