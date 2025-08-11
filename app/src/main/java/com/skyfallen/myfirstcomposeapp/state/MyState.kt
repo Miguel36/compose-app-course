@@ -1,4 +1,4 @@
-package com.skyfallen.myfirstcomposeapp.components.state
+package com.skyfallen.myfirstcomposeapp.state
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
