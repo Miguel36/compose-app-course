@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.skyfallen.myfirstcomposeapp.components.MyDropDownItem
 import com.skyfallen.myfirstcomposeapp.components.MyRangeSlider
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyFirstComposeAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyRangeSlider(Modifier.padding(innerPadding))
+                    MyDropDownItem(Modifier.padding(innerPadding))
                 }
             }
         }
