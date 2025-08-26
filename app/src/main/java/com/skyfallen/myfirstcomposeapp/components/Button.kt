@@ -4,19 +4,26 @@ import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.skyfallen.myfirstcomposeapp.R
 
 @Composable
 fun MyButtons(modifier: Modifier) {
@@ -59,5 +66,25 @@ fun MyButtons(modifier: Modifier) {
 
         // Medio énfasis, la unica diferencia respecto al button normal es que su color es mas claro
         FilledTonalButton(onClick = {}) { Text("FilledTonalButton") }
+    }
+}
+
+/**
+ * This component (Floating Action Button) can be added into Scaffold for customizing our main View
+ */
+@Composable
+fun MyFab() {
+    FloatingActionButton(
+        onClick = {},
+        shape = CircleShape,
+        contentColor = Color.Black,
+        containerColor = Color.Red,
+        elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp)
+    ) {
+        Icon(
+            painter = painterResource(R.drawable.ic_add),
+            contentDescription = "",
+            modifier = Modifier.size(30.dp)
+        )
     }
 }

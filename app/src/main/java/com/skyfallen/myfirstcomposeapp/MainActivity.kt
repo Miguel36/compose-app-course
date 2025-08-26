@@ -10,6 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -24,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
@@ -43,16 +45,18 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     topBar = { MyTopAppBar() },
-                    snackbarHost = { SnackbarHost(hostState = snackbarHostState) }) { innerPadding ->
+                    snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+                    floatingActionButton = { MyFab() },
+                    floatingActionButtonPosition = FabPosition.End) { innerPadding ->
                     Box(
                         modifier = Modifier
                             .padding(innerPadding)
                             .fillMaxSize()
-                            .background(Color.DarkGray), contentAlignment = Alignment.Center
+                            .background(Color.White), contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "Este es mi screen",
-                            color = Color.White,
+                            color = Color.Black,
                             fontWeight = FontWeight.Medium,
                             modifier = Modifier.clickable {
                                 scope.launch {
