@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.skyfallen.myfirstcomposeapp.components.MyFab
+import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
@@ -47,7 +48,8 @@ class MainActivity : ComponentActivity() {
                     topBar = { MyTopAppBar() },
                     snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
                     floatingActionButton = { MyFab() },
-                    floatingActionButtonPosition = FabPosition.End) { innerPadding ->
+                    floatingActionButtonPosition = FabPosition.End,
+                    bottomBar = { MyNavigationBar() }) { innerPadding ->
                     Box(
                         modifier = Modifier
                             .padding(innerPadding)
