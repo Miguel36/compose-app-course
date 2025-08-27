@@ -16,6 +16,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.skyfallen.myfirstcomposeapp.components.model.NavItem
 
 @Composable
@@ -27,7 +28,7 @@ fun MyNavigationBar() {
     )
     var selectedIndex by remember { mutableIntStateOf(0) }
 
-    NavigationBar {
+    NavigationBar(tonalElevation = 2.dp) {
         itemList.forEachIndexed { index, item ->
             SkyFallenItem(item, index == selectedIndex) {
                 selectedIndex = index
