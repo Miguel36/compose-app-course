@@ -58,7 +58,7 @@ fun MyFirstComposeAppTheme(
         content = content,
         shapes = Shapes(
             small = RoundedCornerShape(4),
-            extraLarge = RoundedCornerShape(50)
+            extraLarge = RoundedCornerShape(15)
         )
     )
 }

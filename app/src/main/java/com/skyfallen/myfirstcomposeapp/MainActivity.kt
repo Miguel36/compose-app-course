@@ -4,13 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
-import com.skyfallen.myfirstcomposeapp.components.MyDivider
+import com.skyfallen.myfirstcomposeapp.components.MyDateDialog
+import com.skyfallen.myfirstcomposeapp.components.exercises.MySecondScaffoldNavigationDrawer
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
 
@@ -20,15 +22,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyFirstComposeAppTheme {
-                /* val snackBarHostState = remember { SnackbarHostState() }
+                val snackBarHostState = remember { SnackbarHostState() }
                 val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
 
                 // Se crea corroutina para gestionar en un hilo secundario un proceso
-                val scope = rememberCoroutineScope() */
+                val scope = rememberCoroutineScope()
 
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MyDivider(Modifier.padding(innerPadding))
-                }
+                MyDateDialog()
+                MySecondScaffoldNavigationDrawer(drawerState, scope, snackBarHostState, this@MainActivity)
             }
         }
     }
