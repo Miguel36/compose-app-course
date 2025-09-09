@@ -2,7 +2,9 @@
 
 package com.skyfallen.myfirstcomposeapp.components
 
-import androidx.compose.foundation.clickable
+import android.icu.util.Calendar
+import android.icu.util.TimeZone
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -12,8 +14,10 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
+import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.SelectableDates
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
@@ -55,7 +59,7 @@ fun MyDialog(modifier: Modifier = Modifier) {
                 dismissOnBackPress = true,
                 dismissOnClickOutside = true,
                 securePolicy = SecureFlagPolicy.SecureOn,
-                usePlatformDefaultWidth = true, // This parameter will do that dialog fit the default size
+                usePlatformDefaultWidth = true, // This parameter makes the dialog fit the default size.
                 decorFitsSystemWindows = true
             )
         )
@@ -64,16 +68,45 @@ fun MyDialog(modifier: Modifier = Modifier) {
 @Composable
 fun MyDateDialog(modifier: Modifier = Modifier) {
     var showDialog by remember { mutableStateOf(true) }
-    val datePickerState = rememberDatePickerState(yearRange = 2024..2025)
+
+    val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+    calendar.add(Calendar.DAY_OF_YEAR, +1)
+    calendar.set(Calendar.MONTH, Calendar.SEPTEMBER)
+
+
+    val datePickerState = rememberDatePickerState(
+        initialSelectedDateMillis = calendar.timeInMillis,
+        yearRange = 2024..2026,
+        initialDisplayMode = DisplayMode.Picker,
+        // This function allows you to filter that dates are selectable in DatePicker
+        selectableDates = object : SelectableDates {
+            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                val filterCalendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                    .apply { timeInMillis = utcTimeMillis }
+                val day = filterCalendar.get(Calendar.DAY_OF_MONTH)
+                return day % 2 == 0
+            }
+        }
+    )
 
     if (showDialog) {
         DatePickerDialog(
             onDismissRequest = { showDialog = false },
             confirmButton = {
-                Text(
-                    modifier = Modifier.padding(end = 12.dp).clickable { showDialog = false },
-                    text = "Confirmar"
-                )
+                TextButton(onClick = {
+                    showDialog = false
+                    val result = datePickerState.selectedDateMillis
+                    result?.let {
+                        val newCalendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                            .apply { timeInMillis = result }
+                        val day = newCalendar.get(Calendar.DAY_OF_MONTH)
+                        val month = newCalendar.get(Calendar.MONTH) + 1
+                        Log.i("Fecha seleccionada", "Dia: $day, month: $month")
+                    }
+                }) {
+                    Text(modifier = Modifier.padding(end = 8.dp), text = "Confirmar")
+                }
+
             },
             shape = RoundedCornerShape(8)
         ) {
