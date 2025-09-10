@@ -5,6 +5,8 @@ package com.skyfallen.myfirstcomposeapp.components
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.util.Log
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,7 +22,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.SelectableDates
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TimePicker
+import androidx.compose.material3.TimePickerDefaults
+import androidx.compose.material3.TimePickerLayoutType
 import androidx.compose.material3.rememberDatePickerState
+import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -29,6 +35,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
 
@@ -113,5 +120,41 @@ fun MyDateDialog(modifier: Modifier = Modifier) {
             DatePicker(datePickerState)
         }
     }
+}
 
+@Composable
+fun MyTimePicker(modifier: Modifier = Modifier) {
+    var showTimePicker by remember { mutableStateOf(true) }
+    val timePickerState = rememberTimePickerState(
+        initialHour = 6,
+        initialMinute = 30,
+        is24Hour = false
+    )
+
+    if (showTimePicker) {
+        Dialog(onDismissRequest = { showTimePicker = false }) {
+            Column(modifier = modifier
+                .background(Color.White)
+                .padding(24.dp)) {
+                TimePicker(
+                    timePickerState,
+                    layoutType = TimePickerLayoutType.Vertical,
+                    colors = TimePickerDefaults.colors(
+                        clockDialColor = Color.Yellow.copy(0.45f),
+                        clockDialSelectedContentColor = Color.White,
+                        selectorColor = Color.Black,
+                        clockDialUnselectedContentColor = Color.Black,
+                        periodSelectorBorderColor = Color.Blue,
+                        periodSelectorSelectedContentColor = Color.White,
+                        periodSelectorSelectedContainerColor = Color.Black,
+                        periodSelectorUnselectedContentColor = Color.Black,
+                        timeSelectorSelectedContentColor = Color.White,
+                        timeSelectorSelectedContainerColor = Color.Black,
+                        timeSelectorUnselectedContentColor = Color.Black,
+                        timeSelectorUnselectedContainerColor = Color.White
+                    )
+                )
+            }
+        }
+    }
 }

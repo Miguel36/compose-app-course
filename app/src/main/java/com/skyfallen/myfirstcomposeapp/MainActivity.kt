@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.tooling.preview.Preview
-import com.skyfallen.myfirstcomposeapp.components.MyDateDialog
+import com.skyfallen.myfirstcomposeapp.components.MyTimePicker
 import com.skyfallen.myfirstcomposeapp.components.exercises.MySecondScaffoldNavigationDrawer
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                 // Se crea corroutina para gestionar en un hilo secundario un proceso
                 val scope = rememberCoroutineScope()
 
-                MyDateDialog()
+                MyTimePicker()
                 MySecondScaffoldNavigationDrawer(drawerState, scope, snackBarHostState, this@MainActivity)
             }
         }
