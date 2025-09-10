@@ -6,9 +6,14 @@ import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -32,12 +37,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
+import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 
 @Composable
 fun MyDialog(modifier: Modifier = Modifier) {
@@ -133,9 +141,11 @@ fun MyTimePicker(modifier: Modifier = Modifier) {
 
     if (showTimePicker) {
         Dialog(onDismissRequest = { showTimePicker = false }) {
-            Column(modifier = modifier
-                .background(Color.White)
-                .padding(24.dp)) {
+            Column(
+                modifier = modifier
+                    .background(Color.White)
+                    .padding(24.dp)
+            ) {
                 TimePicker(
                     timePickerState,
                     layoutType = TimePickerLayoutType.Vertical,
@@ -154,6 +164,38 @@ fun MyTimePicker(modifier: Modifier = Modifier) {
                         timeSelectorUnselectedContainerColor = Color.White
                     )
                 )
+            }
+        }
+    }
+}
+
+@Composable
+fun MyCustomDialog(
+    modifier: Modifier = Modifier,
+    pokemonCombat: PokemonCombat,
+    showDialog: Boolean,
+    onDismissDialog: () -> Unit
+) {
+    if (showDialog) {
+        Dialog(onDismissRequest = { onDismissDialog() }) {
+            Column(
+                modifier = modifier.fillMaxWidth().background(Color.White, RoundedCornerShape(20))
+                    .padding(24.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(16.dp),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Text(text = pokemonCombat.pokemonA, fontWeight = FontWeight.Bold)
+                    Spacer(Modifier.width(4.dp))
+                    Text(text = "Vs")
+                    Spacer(Modifier.width(4.dp))
+                    Text(text = pokemonCombat.pokemonB, fontWeight = FontWeight.Bold)
+                }
+                Button(onClick = { onDismissDialog() }) { Text("A LUCHAR") }
+                TextButton(onClick = { onDismissDialog() }) { Text(text = "Cancelar") }
             }
         }
     }
