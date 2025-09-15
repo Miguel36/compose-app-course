@@ -174,6 +174,7 @@ fun MyCustomDialog(
     modifier: Modifier = Modifier,
     pokemonCombat: PokemonCombat,
     showDialog: Boolean,
+    onStartCombat: () -> Unit,
     onDismissDialog: () -> Unit
 ) {
     if (showDialog) {

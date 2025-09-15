@@ -73,9 +73,9 @@ fun MyButtons(modifier: Modifier) {
  * This component (Floating Action Button) can be added into Scaffold for customizing our main View
  */
 @Composable
-fun MyFab() {
+fun MyFab(doAction: () -> Unit = {}) {
     FloatingActionButton(
-        onClick = {},
+        onClick = { doAction() },
         shape = CircleShape,
         contentColor = Color.Black,
         containerColor = Color.Red,
