@@ -7,8 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.FabPosition
@@ -30,11 +33,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
+import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
@@ -72,11 +77,13 @@ class MainActivity : ComponentActivity() {
                         floatingActionButton = { MyFab { showDialog = true } },
                         floatingActionButtonPosition = FabPosition.End,
                         bottomBar = { MyNavigationBar() }) { innerPadding ->
-                        Box(
+                        Column(
                             modifier = Modifier
                                 .padding(innerPadding)
                                 .fillMaxSize()
-                                .background(Color.White), contentAlignment = Alignment.Center
+                                .background(Color.White),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
                                 text = "Este es mi screen",
@@ -102,6 +109,8 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             )
+                            Spacer(Modifier.height(20.dp))
+                            MyInteractionSource()
                         }
                     }
                 }
