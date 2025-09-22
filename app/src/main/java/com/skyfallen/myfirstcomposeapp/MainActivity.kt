@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.skyfallen.myfirstcomposeapp.components.MyBasicList
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
@@ -115,6 +116,7 @@ class MainActivity : ComponentActivity() {
                             MyInteractionSource()
                             MyLaunchedEffect {  }
                             MyDerivedStateOf()
+                            MyBasicList()
                         }
                     }
                 }
