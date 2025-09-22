@@ -39,6 +39,7 @@ import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
+import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyLaunchedEffect
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
@@ -113,6 +114,7 @@ class MainActivity : ComponentActivity() {
                             Spacer(Modifier.height(20.dp))
                             MyInteractionSource()
                             MyLaunchedEffect {  }
+                            MyDerivedStateOf()
                         }
                     }
                 }
