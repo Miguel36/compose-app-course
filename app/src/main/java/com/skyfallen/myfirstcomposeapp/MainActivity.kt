@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.skyfallen.myfirstcomposeapp.components.MyAdvancedList
 import com.skyfallen.myfirstcomposeapp.components.MyBasicList
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
@@ -112,11 +113,11 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             )
-                            Spacer(Modifier.height(20.dp))
-                            MyInteractionSource()
-                            MyLaunchedEffect {  }
-                            MyDerivedStateOf()
-                            MyBasicList()
+//                            Spacer(Modifier.height(20.dp))
+//                            MyInteractionSource()
+//                            MyLaunchedEffect {  }
+//                            MyDerivedStateOf()
+                            MyAdvancedList()
                         }
                     }
                 }
