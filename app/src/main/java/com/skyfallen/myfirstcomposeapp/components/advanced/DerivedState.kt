@@ -33,7 +33,7 @@ fun MyDerivedStateOf(modifier: Modifier = Modifier) {
      * y con esto, solo se actualizará el composable cuando se cumpla la misma. De lo contrario la vista
      * se estaría recomponiendo cada vez que se escribe el email o password lo cual no es óptimo.
      */
-    val isLoginValid by remember(email, password) {
+    val isLoginValid by remember {
         derivedStateOf {
             email.contains("@") && password.length > 4
         }

@@ -38,8 +38,10 @@ import com.skyfallen.myfirstcomposeapp.components.MyAdvancedList
 import com.skyfallen.myfirstcomposeapp.components.MyBasicList
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
+import com.skyfallen.myfirstcomposeapp.components.MyGridList
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
+import com.skyfallen.myfirstcomposeapp.components.MyScrollList
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
@@ -117,7 +119,9 @@ class MainActivity : ComponentActivity() {
 //                            MyInteractionSource()
 //                            MyLaunchedEffect {  }
 //                            MyDerivedStateOf()
-                            MyAdvancedList()
+//                            MyAdvancedList()
+//                            MyScrollList()
+                            MyGridList()
                         }
                     }
                 }
