@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -47,8 +48,10 @@ import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyLaunchedEffect
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
+import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.skyfallen.myfirstcomposeapp.login.Greeting
 import com.skyfallen.myfirstcomposeapp.ui.theme.MyFirstComposeAppTheme
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -74,58 +77,68 @@ class MainActivity : ComponentActivity() {
                     },
                     onDismissDialog = { showDialog = false }
                 )
+                NavigationWrapper()
 
-                MyModalDrawer(drawerState = drawerState) {
-                    Scaffold(
-                        modifier = Modifier.fillMaxSize(),
-                        topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
-                        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
-                        floatingActionButton = { MyFab { showDialog = true } },
-                        floatingActionButtonPosition = FabPosition.End,
-                        bottomBar = { MyNavigationBar() }) { innerPadding ->
-                        Column(
-                            modifier = Modifier
-                                .padding(innerPadding)
-                                .fillMaxSize()
-                                .background(Color.White),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                text = "Este es mi screen",
-                                color = Color.Black,
-                                fontWeight = FontWeight.Medium,
-                                modifier = Modifier.clickable {
-                                    scope.launch {
-                                        val result = snackBarHostState.showSnackbar(
-                                            message = "My Snackbar",
-                                            duration = SnackbarDuration.Long,
-                                            actionLabel = "Deshacer"
-                                        )
+//                MyModalDrawer(drawerState = drawerState) {
+//                    Scaffold(
+//                        modifier = Modifier.fillMaxSize(),
+//                        topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
+//                        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
+//                        floatingActionButton = { MyFab { showDialog = true } },
+//                        floatingActionButtonPosition = FabPosition.End,
+//                        bottomBar = { MyNavigationBar() })
+//                    {
+//                        innerPadding -> Content(innerPadding, scope, snackBarHostState)
+//                    }
+//                }
+            }
+        }
+    }
 
-                                        if (result == SnackbarResult.ActionPerformed) {
-                                            // el usuario pulsó en deshacer
-                                            Toast.makeText(
-                                                this@MainActivity,
-                                                "Que pasó muchachón",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
-                                        } else { /* El usuario dejo que se cerrara el SnackBar*/
-                                        }
-                                    }
-                                }
-                            )
-//                            Spacer(Modifier.height(20.dp))
-//                            MyInteractionSource()
-//                            MyLaunchedEffect {  }
-//                            MyDerivedStateOf()
-//                            MyAdvancedList()
-//                            MyScrollList()
-                            MyGridList()
+    @Composable
+    private fun Content(
+        innerPadding: PaddingValues,
+        scope: CoroutineScope,
+        snackBarHostState: SnackbarHostState
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize()
+                .background(Color.White),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = "Este es mi screen",
+                color = Color.Black,
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier.clickable {
+                    scope.launch {
+                        val result = snackBarHostState.showSnackbar(
+                            message = "My Snackbar",
+                            duration = SnackbarDuration.Long,
+                            actionLabel = "Deshacer"
+                        )
+
+                        if (result == SnackbarResult.ActionPerformed) {
+                            // el usuario pulsó en deshacer
+                            Toast.makeText(
+                                this@MainActivity,
+                                "Que pasó muchachón",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else { /* El usuario dejo que se cerrara el SnackBar*/
                         }
                     }
                 }
-            }
+            )
+            //Spacer(Modifier.height(20.dp))
+            //MyInteractionSource()
+            //MyLaunchedEffect {  }
+            //MyDerivedStateOf()
+            //MyAdvancedList()
+            //MyScrollList()
+            MyGridList()
         }
     }
 }
