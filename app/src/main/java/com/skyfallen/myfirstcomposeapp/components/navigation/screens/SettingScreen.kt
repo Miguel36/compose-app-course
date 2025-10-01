@@ -1,5 +1,6 @@
 package com.skyfallen.myfirstcomposeapp.components.navigation.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,29 +10,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.skyfallen.myfirstcomposeapp.components.navigation.model.SettingModel
 
-private const val DARK_MODE_ID = 1
-
 @Composable
-fun DetailScreen(name: String, navigateToSettings: (SettingModel) -> Unit) {
-    val settings = SettingModel(DARK_MODE_ID, true)
-
+fun SettingsScreen(settings: SettingModel) {
     Column(
         Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(if (settings.darkMode) Color.Black else Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceAround
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Detail Screen", fontSize = 40.sp)
-            Text(text = "Hello! $name", fontSize = 30.sp, color = Color.Blue)
-        }
-
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { navigateToSettings(settings) }) { Text("Settings") }
-            Button(onClick = { }) { Text(text = "Back") }
-        }
+        Text(
+            text = "Settings Screen",
+            fontSize = 40.sp,
+            textAlign = TextAlign.Center,
+            color = if (settings.darkMode) Color.White else Color.Black
+        )
+        Text(
+            text = "DarkMode: ${settings.darkMode}",
+            fontSize = 30.sp,
+            color = if (settings.darkMode) Color.White else Color.Black
+        )
+        Button(onClick = {}) { Text(text = "Back To Home") }
     }
 }
