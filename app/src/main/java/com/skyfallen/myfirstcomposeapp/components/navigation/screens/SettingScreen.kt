@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 import com.skyfallen.myfirstcomposeapp.components.navigation.model.SettingModel
 
 @Composable
-fun SettingsScreen(settings: SettingModel) {
+fun SettingsScreen(settings: SettingModel, navigateToLogin: () -> Unit) {
     Column(
         Modifier
             .fillMaxSize()
@@ -34,6 +34,6 @@ fun SettingsScreen(settings: SettingModel) {
             fontSize = 30.sp,
             color = if (settings.darkMode) Color.White else Color.Black
         )
-        Button(onClick = {}) { Text(text = "Back To Home") }
+        Button(onClick = { navigateToLogin() }) { Text(text = "Back To Home") }
     }
 }

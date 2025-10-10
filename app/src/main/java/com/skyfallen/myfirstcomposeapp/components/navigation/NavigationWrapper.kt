@@ -12,7 +12,6 @@ import com.skyfallen.myfirstcomposeapp.components.navigation.screens.HomeScreen
 import com.skyfallen.myfirstcomposeapp.components.navigation.screens.LoginScreen
 import com.skyfallen.myfirstcomposeapp.components.navigation.screens.SettingsScreen
 import com.skyfallen.myfirstcomposeapp.components.navigation.types.createNavType
-import com.skyfallen.myfirstcomposeapp.components.navigation.types.settingModelType
 import kotlin.reflect.typeOf
 
 @Composable
@@ -40,7 +39,16 @@ fun NavigationWrapper(modifier: Modifier = Modifier) {
 
         composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to createNavType<SettingModel>())) { navStackEntry ->
             val settingsArgs = navStackEntry.toRoute<Settings>()
-            SettingsScreen(settings = settingsArgs.settingModel)
+            SettingsScreen(
+                settings = settingsArgs.settingModel,
+                navigateToLogin = {
+                    navController.navigate(Login) {
+                        popUpTo<Login> {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
     }
 }
