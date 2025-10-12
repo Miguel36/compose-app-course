@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 /**
@@ -22,8 +23,9 @@ import androidx.compose.ui.unit.dp
  * Filas, Columnas y Cajas
  */
 
+@Preview
 @Composable
-fun RowsColumsAndBoxExercise(modifier: Modifier) {
+fun RowsColumsAndBoxExercise(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
         Box(
             Modifier

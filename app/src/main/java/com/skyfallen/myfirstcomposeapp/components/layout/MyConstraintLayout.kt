@@ -16,8 +16,9 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 
+@Preview
 @Composable
-fun MyBasicConstraintLayout(modifier: Modifier) {
+fun MyBasicConstraintLayout(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
         val (boxRed, boxGray, boxGreen, boxMagenta, boxYellow) = createRefs()
 
@@ -54,8 +55,9 @@ fun MyBasicConstraintLayout(modifier: Modifier) {
  * pueadn alinear después de esa guía y sin importar el tamaño del dispositivo, tomaría el 10 % lo que haría
  * que la construcción de los diseños sea más responsive.
  */
+@Preview
 @Composable
-fun ConstraintExampleGuide(modifier: Modifier) {
+fun ConstraintExampleGuide(modifier: Modifier = Modifier) {
     ConstraintLayout(Modifier.fillMaxSize()) {
         val boxRed = createRef()
         val guideStart = createGuidelineFromStart(0.1f)
@@ -77,8 +79,9 @@ fun ConstraintExampleGuide(modifier: Modifier) {
  * no se rompan en distintos dispositivos ya que sin importar que el tamaño de un componente cambie.
  * Siempre se va a respeta la barrera
  */
+@Preview
 @Composable
-fun ConstraintBarrier(modifier: Modifier) {
+fun ConstraintBarrier(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
         val (redBox, yellowBox, cyanBox, darkGrayBox) = createRefs()
         val barrier = createEndBarrier(redBox, yellowBox)

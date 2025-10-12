@@ -11,9 +11,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 
+@Preview
 @Composable
-fun MyState(modifier: Modifier) {
+fun MyState(modifier: Modifier = Modifier) {
     /**
      * "remember" Es suceptible a los cambios de orientación. Cuando se rota la pantalla del dispositivo
      * La vista se destruye y pierde los valores actuales del state. Si la app no cambia de orientación

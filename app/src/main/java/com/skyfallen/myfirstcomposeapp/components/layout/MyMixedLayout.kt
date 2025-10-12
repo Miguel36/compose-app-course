@@ -11,10 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@Preview
 @Composable
-fun MyComplexLayout(modifier: Modifier) {
+fun MyComplexLayout(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Box(Modifier
             .weight(1f)
@@ -22,7 +24,7 @@ fun MyComplexLayout(modifier: Modifier) {
             .background(Color.DarkGray), contentAlignment = Alignment.Center) {
             Row {
                 Box(Modifier.weight(1f).height(120.dp).background(Color.Black), contentAlignment = Alignment.Center) {
-                    Text(text = "How have you been?")
+                    Text(text = "How have you been?", color = Color.White)
                 }
                 Box(Modifier.weight(1f).height(120.dp).background(Color.White), contentAlignment = Alignment.Center) {
                     Text(text = "How's it going?")
@@ -39,7 +41,7 @@ fun MyComplexLayout(modifier: Modifier) {
                     Text(text = "Hello")
                 }
                 Box(modifier = Modifier.weight(1f).height(120.dp).background(Color.DarkGray), contentAlignment = Alignment.Center) {
-                    Text(text = "Hi!")
+                    Text(text = "Hi!", color = Color.White)
                 }
             }
         }
@@ -52,7 +54,7 @@ fun MyComplexLayout(modifier: Modifier) {
                     Text(text = "Is everything ok?")
                 }
                 Box(modifier = Modifier.weight(1f).height(125.dp).background(Color.Black), contentAlignment = Alignment.Center) {
-                    Text(text = "Are you good?")
+                    Text(text = "Are you good?", color = Color.White)
                 }
             }
         }

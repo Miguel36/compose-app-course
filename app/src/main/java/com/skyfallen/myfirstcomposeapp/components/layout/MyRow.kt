@@ -7,10 +7,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 
-
+@Preview
 @Composable
-fun MyRow(modifier: Modifier) {
+fun MyRow(modifier: Modifier = Modifier) {
     Row(modifier = modifier.fillMaxSize()) {
         Text(text = "Hello 1", modifier = Modifier.weight(1f).background(Color.Yellow))
         Text(text = "Hello 2", modifier = Modifier.weight(1f).background(Color.Blue))
