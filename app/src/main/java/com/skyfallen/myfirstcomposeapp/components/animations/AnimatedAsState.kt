@@ -46,6 +46,7 @@ fun FullAnimatedAsState(modifier: Modifier = Modifier) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxSize()) {
         Spacer(Modifier.height(30.dp))
         Button(onClick = { isSelected = !isSelected }) { Text("Presionar") }
+        Text("Animated Float: %.2f".format(animatedFloat))
         Spacer(Modifier.height(30.dp))
 
         Box(
