@@ -48,6 +48,7 @@ import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyLaunchedEffect
 import com.skyfallen.myfirstcomposeapp.components.animations.FullAnimatedAsState
+import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedContent
 import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedVisibility
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
@@ -81,7 +82,8 @@ class MainActivity : ComponentActivity() {
                 )
                 //NavigationWrapper()
                 //MyAnimatedVisibility()
-                FullAnimatedAsState()
+                //FullAnimatedAsState()
+                MyAnimatedContent()
 
 //                MyModalDrawer(drawerState = drawerState) {
 //                    Scaffold(
