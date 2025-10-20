@@ -87,20 +87,20 @@ class MainActivity : ComponentActivity() {
                 //FullAnimatedAsState()
                 //MyAnimatedContent()
                 //MyAnimatedContentSize()
-                MyInfiniteTransition()
+                //MyInfiniteTransition()
 
-//                MyModalDrawer(drawerState = drawerState) {
-//                    Scaffold(
-//                        modifier = Modifier.fillMaxSize(),
-//                        topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
-//                        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
-//                        floatingActionButton = { MyFab { showDialog = true } },
-//                        floatingActionButtonPosition = FabPosition.End,
-//                        bottomBar = { MyNavigationBar() })
-//                    {
-//                        innerPadding -> Content(innerPadding, scope, snackBarHostState)
-//                    }
-//                }
+                MyModalDrawer(drawerState = drawerState) {
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize(),
+                        topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
+                        snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
+                        floatingActionButton = { MyFab { showDialog = true } },
+                        floatingActionButtonPosition = FabPosition.End,
+                        bottomBar = { MyNavigationBar() })
+                    {
+                        innerPadding -> Content(innerPadding, scope, snackBarHostState)
+                    }
+                }
             }
         }
     }
