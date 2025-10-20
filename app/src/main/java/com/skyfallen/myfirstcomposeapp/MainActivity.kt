@@ -51,6 +51,7 @@ import com.skyfallen.myfirstcomposeapp.components.animations.FullAnimatedAsState
 import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedContent
 import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedContentSize
 import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedVisibility
+import com.skyfallen.myfirstcomposeapp.components.animations.MyInfiniteTransition
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.skyfallen.myfirstcomposeapp.login.Greeting
@@ -85,7 +86,8 @@ class MainActivity : ComponentActivity() {
                 //MyAnimatedVisibility()
                 //FullAnimatedAsState()
                 //MyAnimatedContent()
-                MyAnimatedContentSize()
+                //MyAnimatedContentSize()
+                MyInfiniteTransition()
 
 //                MyModalDrawer(drawerState = drawerState) {
 //                    Scaffold(
