@@ -47,8 +47,9 @@ fun MyImage() {
     )
 }
 
+@Preview
 @Composable
-fun MyNetworkImage(modifier: Modifier) {
+fun MyNetworkImage(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize().fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center

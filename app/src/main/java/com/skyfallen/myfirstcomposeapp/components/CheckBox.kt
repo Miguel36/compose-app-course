@@ -22,11 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.skyfallen.myfirstcomposeapp.components.state.CheckBoxData
 
+@Preview
 @Composable
-fun MyCheckBox(modifier: Modifier) {
+fun MyCheckBox(modifier: Modifier = Modifier) {
     /**
      * @switchState, variable de estado que actualizará y establecerá el valor de chequeado en el CheckBox
      */
@@ -54,8 +56,9 @@ fun MyCheckBox(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun ParentCheckBoxes(modifier: Modifier) {
+fun ParentCheckBoxes(modifier: Modifier = Modifier) {
     var states by remember { mutableStateOf(
         listOf(
             CheckBoxData("terms", "Aceptar los terminos y condiciones"),
@@ -100,8 +103,9 @@ fun MyCheckBoxWithText(checkBoxData: CheckBoxData, onCheckedChanged: (CheckBoxDa
     }
 }
 
+@Preview
 @Composable
-fun ThreeStateCheckBox(modifier: Modifier) {
+fun ThreeStateCheckBox(modifier: Modifier = Modifier) {
     var parentState by remember { mutableStateOf(ToggleableState.Off) }
     var child1 by remember { mutableStateOf(false) }
     var child2 by remember { mutableStateOf(false) }

@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,8 +32,9 @@ import androidx.compose.ui.window.PopupProperties
 import com.skyfallen.myfirstcomposeapp.R
 
 @ExperimentalMaterial3Api
+@Preview
 @Composable
-fun MyExposedDropDownMenu(modifier: Modifier) {
+fun MyExposedDropDownMenu(modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
     var selectionValue by remember { mutableStateOf("") }
 
@@ -74,8 +76,9 @@ fun MyExposedDropDownMenu(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyDropDownMenu(modifier: Modifier) {
+fun MyDropDownMenu(modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
 
     Box(modifier = modifier.padding(start = 16.dp, top = 16.dp)) {
@@ -99,8 +102,9 @@ fun MyDropDownMenu(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyDropDownItem(modifier: Modifier) {
+fun MyDropDownItem(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         DropdownMenuItem(
             modifier = Modifier.fillMaxWidth(),

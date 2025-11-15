@@ -13,9 +13,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 
+@Preview
 @Composable
-fun MyRadioButton(modifier: Modifier) {
+fun MyRadioButton(modifier: Modifier = Modifier) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         RadioButton(
             false,
@@ -32,8 +34,9 @@ fun MyRadioButton(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun RadioButtonList(modifier: Modifier) {
+fun RadioButtonList(modifier: Modifier = Modifier) {
     var selectedItemText by remember { mutableStateOf("") }
 
     Column(modifier = modifier) {

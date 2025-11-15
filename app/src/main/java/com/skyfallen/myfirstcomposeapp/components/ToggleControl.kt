@@ -16,10 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.skyfallen.myfirstcomposeapp.R
 
+@Preview
 @Composable
-fun MySwitch(modifier: Modifier) {
+fun MySwitch(modifier: Modifier = Modifier) {
     var switchState by remember { mutableStateOf(true) }
 
     Box(

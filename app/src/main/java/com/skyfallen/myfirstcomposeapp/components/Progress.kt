@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -32,8 +33,9 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.skyfallen.myfirstcomposeapp.R
 
+@Preview
 @Composable
-fun MyProgress(modifier: Modifier) {
+fun MyProgress(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -51,8 +53,9 @@ fun MyProgress(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyProgressAdvance(modifier: Modifier) {
+fun MyProgressAdvance(modifier: Modifier = Modifier) {
     var progress by remember { mutableFloatStateOf(0.5f) }
     val  animatedProgress by animateFloatAsState(targetValue = progress)
     var isLoading by remember { mutableStateOf(false) }
@@ -93,8 +96,9 @@ fun MyProgressAdvance(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyLottieAnimationProgress(modifier: Modifier) {
+fun MyLottieAnimationProgress(modifier: Modifier = Modifier) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.hourglass_loading))
 
     Column(modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {

@@ -23,11 +23,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@Preview
 @Composable
-fun MyCard(modifier: Modifier) {
+fun MyCard(modifier: Modifier = Modifier) {
     Card(
         modifier = modifier.fillMaxWidth().padding(16.dp),
         shape = MaterialTheme.shapes.extraLarge,
@@ -58,8 +60,9 @@ fun MyCard(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyElevatedCard(modifier: Modifier) {
+fun MyElevatedCard(modifier: Modifier = Modifier) {
     ElevatedCard(
         modifier = modifier.fillMaxWidth().padding(16.dp),
         colors = CardDefaults.cardColors(
@@ -87,8 +90,9 @@ fun MyElevatedCard(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyOutlinedCard(modifier: Modifier) {
+fun MyOutlinedCard(modifier: Modifier = Modifier) {
     OutlinedCard (
         modifier = modifier.fillMaxWidth().padding(16.dp),
         colors = CardDefaults.cardColors(

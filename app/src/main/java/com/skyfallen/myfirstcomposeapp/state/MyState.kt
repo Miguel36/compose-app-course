@@ -38,8 +38,9 @@ fun MyState(modifier: Modifier = Modifier) {
  * en el estado y cuando se rota la pantalla, si existe algún valor lo recupera. Útil si necesitamos
  * rotar la pantalla en nuestra App
  */
+@Preview
 @Composable
-fun MyStateTwo(modifier: Modifier) {
+fun MyStateTwo(modifier: Modifier = Modifier) {
     /* Con la state property "by" podemos acceder directamente al valor sin necesidad de usar el .value,
      solo tendremos que importar el setValue y el getValue para poder acceder al valor o modificarlo */
     var number by rememberSaveable { mutableIntStateOf(0) }

@@ -29,10 +29,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@Preview
 @Composable
-fun MySlider(modifier: Modifier) {
+fun MySlider(modifier: Modifier = Modifier) {
     var sliderValue by remember { mutableFloatStateOf(0.5f) }
     Column(modifier = modifier.padding(horizontal = 24.dp)) {
         Slider(
@@ -50,8 +52,9 @@ fun MySlider(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MySliderAdvanced(modifier: Modifier) {
+fun MySliderAdvanced(modifier: Modifier = Modifier) {
     val colors = SliderDefaults.colors(
         thumbColor = Color.DarkGray,
         disabledThumbColor = Color.Black,
@@ -84,8 +87,9 @@ fun MySliderAdvanced(modifier: Modifier) {
     }
 }
 
+@Preview
 @Composable
-fun MyRangeSlider(modifier: Modifier) {
+fun MyRangeSlider(modifier: Modifier = Modifier) {
     val state = remember {
         RangeSliderState(
             activeRangeStart = 4f,

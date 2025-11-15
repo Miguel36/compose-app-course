@@ -22,10 +22,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@Preview
 @Composable
-fun MyTextFieldParent(modifier: Modifier) {
+fun MyTextFieldParent(modifier: Modifier = Modifier) {
     var user by remember { mutableStateOf("Miguel Angel") }
     var value by remember { mutableStateOf("") }
 

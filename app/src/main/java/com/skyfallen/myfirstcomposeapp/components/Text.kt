@@ -12,10 +12,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
+@Preview
 @Composable
-fun MyText(modifier: Modifier) {
+fun MyText(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text("Pepito")
         Text("Pepe rojo", color = Color.Red)
