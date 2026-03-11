@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Settings
@@ -34,9 +35,9 @@ fun MyModalDrawer(drawerState: DrawerState, content: @Composable () -> Unit) {
     var selectedIndex by remember { mutableIntStateOf(0) }
 
     val menuItems = listOf(
-        MenuItem(Icons.Default.Notifications, "Notifications", 3),
-        MenuItem(Icons.Default.Place, "Location", 0),
-        MenuItem(Icons.Default.Settings, "Settings", 1)
+        MenuItem(Icons.Default.Home, "Home", 3),
+        MenuItem(Icons.Default.Place, "ExampleNavigation", 0),
+        MenuItem(Icons.Default.Settings, "MyBox - Layout", 1)
     )
 
     // Container del navigationDrawer
