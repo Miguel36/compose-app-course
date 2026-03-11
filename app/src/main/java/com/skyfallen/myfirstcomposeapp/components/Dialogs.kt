@@ -173,31 +173,28 @@ fun MyTimePicker(modifier: Modifier = Modifier) {
 fun MyCustomDialog(
     modifier: Modifier = Modifier,
     pokemonCombat: PokemonCombat,
-    showDialog: Boolean = false,
     onStartCombat: () -> Unit,
     onDismissDialog: () -> Unit
 ) {
-    if (showDialog) {
-        Dialog(onDismissRequest = { onDismissDialog() }) {
-            Column(
-                modifier = modifier.fillMaxWidth().background(Color.White, RoundedCornerShape(20))
-                    .padding(24.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
+    Dialog(onDismissRequest = { onDismissDialog() }) {
+        Column(
+            modifier = modifier.fillMaxWidth().background(Color.White, RoundedCornerShape(20))
+                .padding(24.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
+                horizontalArrangement = Arrangement.Center
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Text(text = pokemonCombat.pokemonA, fontWeight = FontWeight.Bold)
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = "Vs")
-                    Spacer(Modifier.width(4.dp))
-                    Text(text = pokemonCombat.pokemonB, fontWeight = FontWeight.Bold)
-                }
-                Button(onClick = { onDismissDialog() }) { Text("A LUCHAR") }
-                TextButton(onClick = { onDismissDialog() }) { Text(text = "Cancelar") }
+                Text(text = pokemonCombat.pokemonA, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.width(4.dp))
+                Text(text = "Vs")
+                Spacer(Modifier.width(4.dp))
+                Text(text = pokemonCombat.pokemonB, fontWeight = FontWeight.Bold)
             }
+            Button(onClick = { onDismissDialog() }) { Text("A LUCHAR") }
+            TextButton(onClick = { onDismissDialog() }) { Text(text = "Cancelar") }
         }
     }
 }
