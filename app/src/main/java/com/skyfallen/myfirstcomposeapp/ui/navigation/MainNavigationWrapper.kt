@@ -11,11 +11,8 @@ fun MainNavigationWrapper(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Home) {
-
         composable<Home> {
 
         }
-
-
     }
 }

@@ -173,7 +173,7 @@ fun MyTimePicker(modifier: Modifier = Modifier) {
 fun MyCustomDialog(
     modifier: Modifier = Modifier,
     pokemonCombat: PokemonCombat,
-    showDialog: Boolean,
+    showDialog: Boolean = false,
     onStartCombat: () -> Unit,
     onDismissDialog: () -> Unit
 ) {
