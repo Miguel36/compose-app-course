@@ -24,19 +24,23 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.model.MenuItem
+import com.skyfallen.myfirstcomposeapp.ui.navigation.Home
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyBoxLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.NavigationWrapperExample
 import kotlinx.coroutines.launch
 
 @Composable
-fun MyModalDrawer(drawerState: DrawerState, content: @Composable () -> Unit) {
+fun MyModalDrawer(drawerState: DrawerState, navController: NavHostController, content: @Composable () -> Unit) {
 
     val scope = rememberCoroutineScope()
     var selectedIndex by remember { mutableIntStateOf(0) }
 
     val menuItems = listOf(
-        MenuItem(Icons.Default.Home, "Home", 3),
-        MenuItem(Icons.Default.Search, "ExampleNavigation", 0),
-        MenuItem(Icons.Default.CheckCircle, "MyBox - Layout", 1)
+        MenuItem(Icons.Default.Home, "Home", 3, Home),
+        MenuItem(Icons.Default.Search, "ExampleNavigation", 0, NavigationWrapperExample),
+        MenuItem(Icons.Default.CheckCircle, "MyBox - Layout", 1, MyBoxLayout)
     )
 
     // Container del navigationDrawer
@@ -55,6 +59,7 @@ fun MyModalDrawer(drawerState: DrawerState, content: @Composable () -> Unit) {
                         selectedIndex = index
 
                         scope.launch { drawerState.close() }
+                        navController.navigate(menuItem.route)
                     }
                 }
             }

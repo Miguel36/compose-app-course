@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
@@ -38,7 +39,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(navController: NavHostController) {
     val snackBarHostState = remember { SnackbarHostState() }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope() // Se crea corroutina para gestionar en un hilo secundario un proceso
@@ -56,7 +57,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         )
     }
 
-    MyModalDrawer(drawerState = drawerState) {
+    MyModalDrawer(drawerState = drawerState, navController = navController) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },

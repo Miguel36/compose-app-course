@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
@@ -32,9 +33,10 @@ fun MySecondScaffoldNavigationDrawer(
     drawerState: DrawerState,
     scope: CoroutineScope,
     snackBarHostState: SnackbarHostState,
-    context: Context
+    context: Context,
+    navController: NavHostController
 ) {
-    MyModalDrawer(drawerState = drawerState) {
+    MyModalDrawer(drawerState = drawerState, navController = navController) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
