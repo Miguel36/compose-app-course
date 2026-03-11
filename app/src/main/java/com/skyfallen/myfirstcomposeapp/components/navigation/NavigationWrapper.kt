@@ -29,6 +29,7 @@ fun NavigationWrapper(modifier: Modifier = Modifier) {
                 navigateToDetail = { name, isUser -> navController.navigate(Detail(name, isUser)) })
         }
 
+        // in this one the args only are a primitive types
         composable<Detail> { navBackStackEntry ->
             val args = navBackStackEntry.toRoute<Detail>()
             //args.isUser
@@ -37,6 +38,7 @@ fun NavigationWrapper(modifier: Modifier = Modifier) {
                 navigateToSettings = { navController.navigate(Settings(it)) })
         }
 
+        // in this one, args is a object. that's why you'll need a typeMap
         composable<Settings>(typeMap = mapOf(typeOf<SettingModel>() to createNavType<SettingModel>())) { navStackEntry ->
             val settingsArgs = navStackEntry.toRoute<Settings>()
             SettingsScreen(

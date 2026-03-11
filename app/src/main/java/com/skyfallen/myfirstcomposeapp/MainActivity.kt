@@ -148,7 +148,7 @@ class MainActivity : ComponentActivity() {
             //MyDerivedStateOf()
             //MyAdvancedList()
             //MyScrollList()
-            MyGridList()
+            //MyGridList()
         }
     }
 }

@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.skyfallen.myfirstcomposeapp.components.model.MenuItem
+import kotlinx.coroutines.launch
 
 @Composable
 fun MyModalDrawer(drawerState: DrawerState, content: @Composable () -> Unit) {
@@ -52,6 +53,8 @@ fun MyModalDrawer(drawerState: DrawerState, content: @Composable () -> Unit) {
                 menuItems.forEachIndexed { index, menuItem ->
                     MyMenuItem(index == selectedIndex, menuItem) {
                         selectedIndex = index
+
+                        scope.launch { drawerState.close() }
                     }
                 }
             }
