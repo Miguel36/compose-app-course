@@ -5,19 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.FabPosition
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -31,21 +25,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
-import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
-import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
-import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreen(navController: NavHostController) {
-    val snackBarHostState = remember { SnackbarHostState() }
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-    val scope = rememberCoroutineScope() // Se crea corroutina para gestionar en un hilo secundario un proceso
+fun HomeScreen(navController: NavHostController, snackBarHostState: SnackbarHostState, setFab: (@Composable () -> Unit) -> Unit) {
     var showDialog by remember { mutableStateOf(false) }
-
+    var scope = rememberCoroutineScope()
     val pokemonCombat = PokemonCombat("Pikachu", "Gengar")
+
     if (showDialog) {
         MyCustomDialog(
             pokemonCombat = pokemonCombat,
@@ -57,27 +46,22 @@ fun HomeScreen(navController: NavHostController) {
         )
     }
 
-    MyModalDrawer(drawerState = drawerState, navController = navController) {
-        Scaffold(
-            modifier = Modifier.fillMaxSize(),
-            topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
-            snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
-            floatingActionButton = { MyFab { showDialog = true } },
-            floatingActionButtonPosition = FabPosition.End,
-            bottomBar = { MyNavigationBar() })
-        { innerPadding ->
-            Content(innerPadding, scope, snackBarHostState)
+    DisposableEffect(Unit) {
+        setFab {
+            MyFab { showDialog = true }
         }
+        onDispose { setFab {} }
     }
+
+    Content(scope = scope, snackBarHostState = snackBarHostState)
 }
 
 @Composable
-private fun Content(innerPadding: PaddingValues, scope: CoroutineScope, snackBarHostState: SnackbarHostState) {
+private fun Content(scope: CoroutineScope, snackBarHostState: SnackbarHostState) {
     val context = LocalContext.current
 
     Column(
         modifier = Modifier
-            .padding(innerPadding)
             .fillMaxSize()
             .background(Color.White),
         verticalArrangement = Arrangement.Center,
