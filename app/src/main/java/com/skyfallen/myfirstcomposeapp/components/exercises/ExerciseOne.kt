@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun RowsColumsAndBoxExercise(modifier: Modifier = Modifier) {
+fun RowsColumnsAndBoxExercise(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
         Box(
             Modifier

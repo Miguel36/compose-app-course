@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreen(navController: NavHostController, snackBarHostState: SnackbarHostState, setFab: (@Composable () -> Unit) -> Unit) {
     var showDialog by remember { mutableStateOf(false) }
-    var scope = rememberCoroutineScope()
+    val scope = rememberCoroutineScope()
     val pokemonCombat = PokemonCombat("Pikachu", "Gengar")
 
     if (showDialog) {

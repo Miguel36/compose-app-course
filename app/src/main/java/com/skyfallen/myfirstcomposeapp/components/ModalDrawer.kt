@@ -2,6 +2,9 @@ package com.skyfallen.myfirstcomposeapp.components
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
@@ -26,9 +29,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.model.MenuItem
+import com.skyfallen.myfirstcomposeapp.ui.navigation.BottomBarScaffold
+import com.skyfallen.myfirstcomposeapp.ui.navigation.ConstraintsExercise
+import com.skyfallen.myfirstcomposeapp.ui.navigation.DerivedStateOfExample
 import com.skyfallen.myfirstcomposeapp.ui.navigation.Home
+import com.skyfallen.myfirstcomposeapp.ui.navigation.InteractionSourceExample
+import com.skyfallen.myfirstcomposeapp.ui.navigation.LaunchedEffectExample
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyBarrierConstraintLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyBasicConstraintLayout
 import com.skyfallen.myfirstcomposeapp.ui.navigation.MyBoxLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyChainConstraintLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyColumnLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyGuideLineConstraintLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyMixedLayout
+import com.skyfallen.myfirstcomposeapp.ui.navigation.MyRowLayout
 import com.skyfallen.myfirstcomposeapp.ui.navigation.NavigationWrapperExample
+import com.skyfallen.myfirstcomposeapp.ui.navigation.RowsColumnsExercise
 import kotlinx.coroutines.launch
 
 @Composable
@@ -36,11 +52,26 @@ fun MyModalDrawer(drawerState: DrawerState, navController: NavHostController, co
 
     val scope = rememberCoroutineScope()
     var selectedIndex by rememberSaveable { mutableIntStateOf(0) }
+    val listState = rememberLazyListState()
 
     val menuItems = listOf(
         MenuItem(Icons.Default.Home, "Home", 3, Home),
         MenuItem(Icons.Default.Search, "ExampleNavigation", 0, NavigationWrapperExample),
-        MenuItem(Icons.Default.CheckCircle, "MyBox - Layout", 1, MyBoxLayout)
+
+        MenuItem(Icons.Default.CheckCircle, "MyBox - Layout", 0, MyBoxLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyColum - Layout", 0, MyColumnLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyMixed - Layout", 0, MyMixedLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyRow - Layout", 0, MyRowLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyBasicConstraint - Layout", 0, MyBasicConstraintLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyGuideLineConstraint - Layout", 0, MyGuideLineConstraintLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyBarrierConstraint - Layout", 0, MyBarrierConstraintLayout),
+        MenuItem(Icons.Default.CheckCircle, "MyChainConstraint - Layout", 0, MyChainConstraintLayout),
+        MenuItem(Icons.Default.CheckCircle, "RowColumns - Exercise", 0, RowsColumnsExercise),
+        MenuItem(Icons.Default.CheckCircle, "ConstraintLayout - Exercise", 0, ConstraintsExercise),
+        MenuItem(Icons.Default.CheckCircle, "BottomBarScaffold - Exercise", 0, BottomBarScaffold),
+        MenuItem(Icons.Default.CheckCircle, "LaunchedEffect - Example", 0, LaunchedEffectExample),
+        MenuItem(Icons.Default.CheckCircle, "InteractionSource - Example", 0, InteractionSourceExample),
+        MenuItem(Icons.Default.CheckCircle, "DerivedStateOf - Example", 0, DerivedStateOfExample),
     )
 
     // Container del navigationDrawer
@@ -53,15 +84,21 @@ fun MyModalDrawer(drawerState: DrawerState, navController: NavHostController, co
                 drawerContentColor = Color.Red.copy(0.80f),
                 drawerContainerColor = Color.White,
             ) {
-                Spacer(Modifier.height(30.dp))
-                menuItems.forEachIndexed { index, menuItem ->
-                    MyMenuItem(index == selectedIndex, menuItem) {
-                        selectedIndex = index
+                // Add Scroll to Menu Drawer
+                LazyColumn(state = listState) {
+                    item { Spacer(Modifier.height(30.dp)) }
 
-                        scope.launch { drawerState.close() }
-                        navController.navigate(menuItem.route)
+                    itemsIndexed(menuItems) { index, menuItem ->
+                        MyMenuItem(index == selectedIndex, menuItem) {
+                            selectedIndex = index
+
+                            scope.launch { drawerState.close() }
+                            navController.navigate(menuItem.route)
+                        }
                     }
                 }
+
+
             }
         },
         scrimColor = Color.Black.copy(alpha = 0.70f)

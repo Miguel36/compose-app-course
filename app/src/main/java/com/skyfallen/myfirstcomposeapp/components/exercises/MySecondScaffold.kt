@@ -1,6 +1,5 @@
 package com.skyfallen.myfirstcomposeapp.components.exercises
 
-import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,34 +15,31 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.skyfallen.myfirstcomposeapp.components.MyFab
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
-import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun MySecondScaffoldNavigationDrawer(
-    drawerState: DrawerState,
-    scope: CoroutineScope,
-    snackBarHostState: SnackbarHostState,
-    context: Context,
-    navController: NavHostController
-) {
+fun MySecondScaffoldNavigationDrawer(drawerState: DrawerState, snackBarHostState: SnackbarHostState) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val navController = rememberNavController()
+
     MyModalDrawer(drawerState = drawerState, navController = navController) {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = { MyTopAppBar { scope.launch { drawerState.open() } } },
             snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
             floatingActionButton = { MyFab() },
-            floatingActionButtonPosition = FabPosition.End,
-            bottomBar = { MyNavigationBar() }) { innerPadding ->
+            floatingActionButtonPosition = FabPosition.End) { innerPadding ->
             Box(
                 modifier = Modifier
                     .padding(innerPadding)

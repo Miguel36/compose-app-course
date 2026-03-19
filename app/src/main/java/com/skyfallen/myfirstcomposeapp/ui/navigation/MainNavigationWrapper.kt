@@ -21,7 +21,20 @@ import androidx.navigation.compose.rememberNavController
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
+import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
+import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
+import com.skyfallen.myfirstcomposeapp.components.advanced.MyLaunchedEffect
+import com.skyfallen.myfirstcomposeapp.components.exercises.ConstraintLayoutExercise
+import com.skyfallen.myfirstcomposeapp.components.exercises.RowsColumnsAndBoxExercise
+import com.skyfallen.myfirstcomposeapp.components.exercises.ScaffoldOnlyWithBottomBar
+import com.skyfallen.myfirstcomposeapp.components.layout.BasicConstraintLayout
+import com.skyfallen.myfirstcomposeapp.components.layout.ConstraintBarrier
+import com.skyfallen.myfirstcomposeapp.components.layout.ConstraintChain
+import com.skyfallen.myfirstcomposeapp.components.layout.ConstraintExampleGuide
 import com.skyfallen.myfirstcomposeapp.components.layout.MyBox
+import com.skyfallen.myfirstcomposeapp.components.layout.MyColum
+import com.skyfallen.myfirstcomposeapp.components.layout.MyComplexLayout
+import com.skyfallen.myfirstcomposeapp.components.layout.MyRow
 import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.skyfallen.myfirstcomposeapp.ui.HomeScreen
 import kotlinx.coroutines.launch
@@ -52,9 +65,25 @@ fun MainNavigationWrapper() {
                 composable<NavigationWrapperExample> {
                     NavigationWrapper()
                 }
-                composable<MyBoxLayout> {
-                    MyBox()
-                }
+
+                composable<MyBoxLayout> { MyBox() }
+                composable<MyColumnLayout> { MyColum() }
+                composable<MyMixedLayout> { MyComplexLayout() }
+                composable<MyRowLayout> { MyRow() }
+
+                composable<MyBasicConstraintLayout> { BasicConstraintLayout() }
+                composable<MyGuideLineConstraintLayout> { ConstraintExampleGuide() }
+                composable<MyBarrierConstraintLayout> { ConstraintBarrier() }
+                composable<MyChainConstraintLayout> { ConstraintChain() }
+
+                composable<RowsColumnsExercise> { RowsColumnsAndBoxExercise() }
+                composable<ConstraintsExercise> { ConstraintLayoutExercise() }
+
+                composable<BottomBarScaffold> { ScaffoldOnlyWithBottomBar(snackBarHostState) }
+
+                composable<LaunchedEffectExample> { MyLaunchedEffect {} }
+                composable<InteractionSourceExample> { MyInteractionSource() }
+                composable<DerivedStateOfExample> { MyDerivedStateOf() }
             }
         }
     }

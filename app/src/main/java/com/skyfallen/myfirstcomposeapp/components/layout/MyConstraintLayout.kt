@@ -18,7 +18,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Preview
 @Composable
-fun MyBasicConstraintLayout(modifier: Modifier = Modifier) {
+fun BasicConstraintLayout(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
         val (boxRed, boxGray, boxGreen, boxMagenta, boxYellow) = createRefs()
 
