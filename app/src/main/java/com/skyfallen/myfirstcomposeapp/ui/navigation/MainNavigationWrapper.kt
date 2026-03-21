@@ -3,6 +3,7 @@ package com.skyfallen.myfirstcomposeapp.ui.navigation
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -18,8 +19,40 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.skyfallen.myfirstcomposeapp.components.MyAdvancedList
+import com.skyfallen.myfirstcomposeapp.components.MyBadge
+import com.skyfallen.myfirstcomposeapp.components.MyBadgeBox
+import com.skyfallen.myfirstcomposeapp.components.MyBasicList
+import com.skyfallen.myfirstcomposeapp.components.MyButtons
+import com.skyfallen.myfirstcomposeapp.components.MyCard
+import com.skyfallen.myfirstcomposeapp.components.MyCheckBox
+import com.skyfallen.myfirstcomposeapp.components.MyDateDialog
+import com.skyfallen.myfirstcomposeapp.components.MyDialog
+import com.skyfallen.myfirstcomposeapp.components.MyDivider
+import com.skyfallen.myfirstcomposeapp.components.MyDropDownItem
+import com.skyfallen.myfirstcomposeapp.components.MyDropDownMenu
+import com.skyfallen.myfirstcomposeapp.components.MyElevatedCard
+import com.skyfallen.myfirstcomposeapp.components.MyExposedDropDownMenu
+import com.skyfallen.myfirstcomposeapp.components.MyFab
+import com.skyfallen.myfirstcomposeapp.components.MyGridList
+import com.skyfallen.myfirstcomposeapp.components.MyIcon
+import com.skyfallen.myfirstcomposeapp.components.MyImage
+import com.skyfallen.myfirstcomposeapp.components.MyLottieAnimationProgress
 import com.skyfallen.myfirstcomposeapp.components.MyModalDrawer
 import com.skyfallen.myfirstcomposeapp.components.MyNavigationBar
+import com.skyfallen.myfirstcomposeapp.components.MyNetworkImage
+import com.skyfallen.myfirstcomposeapp.components.MyOutlinedCard
+import com.skyfallen.myfirstcomposeapp.components.MyProgress
+import com.skyfallen.myfirstcomposeapp.components.MyProgressAdvance
+import com.skyfallen.myfirstcomposeapp.components.MyRadioButton
+import com.skyfallen.myfirstcomposeapp.components.MyRangeSlider
+import com.skyfallen.myfirstcomposeapp.components.MyScrollList
+import com.skyfallen.myfirstcomposeapp.components.MySlider
+import com.skyfallen.myfirstcomposeapp.components.MySliderAdvanced
+import com.skyfallen.myfirstcomposeapp.components.MySwitch
+import com.skyfallen.myfirstcomposeapp.components.MyText
+import com.skyfallen.myfirstcomposeapp.components.MyTextFieldParent
+import com.skyfallen.myfirstcomposeapp.components.MyTimePicker
 import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
@@ -35,10 +68,12 @@ import com.skyfallen.myfirstcomposeapp.components.layout.MyBox
 import com.skyfallen.myfirstcomposeapp.components.layout.MyColum
 import com.skyfallen.myfirstcomposeapp.components.layout.MyComplexLayout
 import com.skyfallen.myfirstcomposeapp.components.layout.MyRow
+import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.skyfallen.myfirstcomposeapp.ui.HomeScreen
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainNavigationWrapper() {
     val snackBarHostState = remember { SnackbarHostState() }
@@ -84,6 +119,41 @@ fun MainNavigationWrapper() {
                 composable<LaunchedEffectExample> { MyLaunchedEffect {} }
                 composable<InteractionSourceExample> { MyInteractionSource() }
                 composable<DerivedStateOfExample> { MyDerivedStateOf() }
+
+                composable<NavigationBarComponent> { MyNavigationBar() }
+                composable<TopAppBarComponent> { MyTopAppBar {} }
+                composable<DividerComponent> { MyDivider() }
+                composable<BasicListComponent> { MyBasicList() }
+                composable<AdvancedListComponent> { MyAdvancedList() }
+                composable<ScrollListComponent> { MyScrollList() }
+                composable<GridListComponent> { MyGridList() }
+                composable<TextComponent> { MyText() }
+                composable<TextFieldComponent> { MyTextFieldParent() }
+                composable<ButtonComponent> { MyButtons() }
+                composable<FabComponent> { MyFab() }
+                composable<ImageComponent> { MyImage() }
+                composable<NetworkImageComponent> { MyNetworkImage() }
+                composable<IconComponent> { MyIcon() }
+                composable<CardComponent> { MyCard() }
+                composable<ElevatedCardComponent> { MyElevatedCard() }
+                composable<OutlinedCardComponent> { MyOutlinedCard() }
+                composable<ProgressComponent> { MyProgress() }
+                composable<ProgressAdvanceComponent> { MyProgressAdvance() }
+                composable<LottieAnimationProgressComponent> { MyLottieAnimationProgress() }
+                composable<CheckBoxComponent> { MyCheckBox() }
+                composable<RadioButtonComponent> { MyRadioButton() }
+                composable<SliderComponent> { MySlider() }
+                composable<SliderAdvanceComponent> { MySliderAdvanced() }
+                composable<RangeSliderComponent> { MyRangeSlider() }
+                composable<BadgeComponent> { MyBadge() }
+                composable<BadgeBoxComponent> { MyBadgeBox() }
+                composable<ExposedDropDownComponent> { MyExposedDropDownMenu() }
+                composable<DropDownMenuComponent> { MyDropDownMenu() }
+                composable<DropDownItemComponent> { MyDropDownItem() }
+                composable<ToggleControlComponent> { MySwitch() }
+                composable<BasicDialogComponent> { MyDialog() }
+                composable<DateDialogComponent> { MyDateDialog() }
+                composable<TimePickerDialogComponent> { MyTimePicker() }
             }
         }
     }

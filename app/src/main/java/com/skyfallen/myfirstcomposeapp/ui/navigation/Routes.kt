@@ -55,60 +55,106 @@ object InteractionSourceExample
 object DerivedStateOfExample
 
 //Components
+@Serializable
 object NavigationBarComponent
 
+@Serializable
 object TopAppBarComponent
 
+@Serializable
 object DividerComponent
 
+@Serializable
 object BasicListComponent
 
+@Serializable
 object AdvancedListComponent
 
+@Serializable
 object ScrollListComponent
 
+@Serializable
 object GridListComponent
 
+@Serializable
 object TextComponent
 
+@Serializable
 object TextFieldComponent
 
+@Serializable
 object ButtonComponent
 
+@Serializable
 object FabComponent
 
+@Serializable
 object ImageComponent
 
+@Serializable
 object NetworkImageComponent
 
+@Serializable
 object IconComponent
 
+@Serializable
 object CardComponent
 
+@Serializable
 object ElevatedCardComponent
 
-object OutlineCardComponent
+@Serializable
+object OutlinedCardComponent
 
+@Serializable
 object ProgressComponent
 
+@Serializable
+object ProgressAdvanceComponent
+
+@Serializable
+object LottieAnimationProgressComponent
+
+@Serializable
 object CheckBoxComponent
 
+@Serializable
 object RadioButtonComponent
 
+@Serializable
 object SliderComponent
 
+@Serializable
+object SliderAdvanceComponent
+
+@Serializable
+object RangeSliderComponent
+
+@Serializable
 object BadgeComponent
 
-object DropDownComponent
+@Serializable
+object BadgeBoxComponent
 
+@Serializable
+object ExposedDropDownComponent
+
+@Serializable
+object DropDownMenuComponent
+
+@Serializable
+object DropDownItemComponent
+
+@Serializable
 object ToggleControlComponent
 
+@Serializable
 object BasicDialogComponent
 
+@Serializable
 object DateDialogComponent
 
+@Serializable
 object TimePickerDialogComponent
-
-object CustomDialogComponent
 
 
