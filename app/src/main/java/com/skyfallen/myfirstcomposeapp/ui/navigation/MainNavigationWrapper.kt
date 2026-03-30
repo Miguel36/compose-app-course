@@ -57,6 +57,11 @@ import com.skyfallen.myfirstcomposeapp.components.MyTopAppBar
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyDerivedStateOf
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyInteractionSource
 import com.skyfallen.myfirstcomposeapp.components.advanced.MyLaunchedEffect
+import com.skyfallen.myfirstcomposeapp.components.animations.FullAnimatedAsState
+import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedContent
+import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedContentSize
+import com.skyfallen.myfirstcomposeapp.components.animations.MyAnimatedVisibility
+import com.skyfallen.myfirstcomposeapp.components.animations.MyInfiniteTransition
 import com.skyfallen.myfirstcomposeapp.components.exercises.ConstraintLayoutExercise
 import com.skyfallen.myfirstcomposeapp.components.exercises.RowsColumnsAndBoxExercise
 import com.skyfallen.myfirstcomposeapp.components.exercises.ScaffoldOnlyWithBottomBar
@@ -68,7 +73,6 @@ import com.skyfallen.myfirstcomposeapp.components.layout.MyBox
 import com.skyfallen.myfirstcomposeapp.components.layout.MyColum
 import com.skyfallen.myfirstcomposeapp.components.layout.MyComplexLayout
 import com.skyfallen.myfirstcomposeapp.components.layout.MyRow
-import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
 import com.skyfallen.myfirstcomposeapp.components.navigation.NavigationWrapper
 import com.skyfallen.myfirstcomposeapp.ui.HomeScreen
 import kotlinx.coroutines.launch
@@ -154,6 +158,11 @@ fun MainNavigationWrapper() {
                 composable<BasicDialogComponent> { MyDialog() }
                 composable<DateDialogComponent> { MyDateDialog() }
                 composable<TimePickerDialogComponent> { MyTimePicker() }
+                composable<AnimatedVisibility> { MyAnimatedVisibility() }
+                composable<AnimatedAsState> { FullAnimatedAsState() }
+                composable<AnimatedContent> { MyAnimatedContent() }
+                composable<AnimatedContentSize> { MyAnimatedContentSize() }
+                composable<InfiniteTransition> { MyInfiniteTransition() }
             }
         }
     }

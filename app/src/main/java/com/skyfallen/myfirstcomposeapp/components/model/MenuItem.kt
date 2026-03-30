@@ -4,11 +4,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.skyfallen.myfirstcomposeapp.ui.navigation.AdvancedListComponent
+import com.skyfallen.myfirstcomposeapp.ui.navigation.AnimatedAsState
+import com.skyfallen.myfirstcomposeapp.ui.navigation.AnimatedContent
+import com.skyfallen.myfirstcomposeapp.ui.navigation.AnimatedContentSize
+import com.skyfallen.myfirstcomposeapp.ui.navigation.AnimatedVisibility
 import com.skyfallen.myfirstcomposeapp.ui.navigation.BadgeBoxComponent
 import com.skyfallen.myfirstcomposeapp.ui.navigation.BadgeComponent
 import com.skyfallen.myfirstcomposeapp.ui.navigation.BasicDialogComponent
@@ -30,6 +35,7 @@ import com.skyfallen.myfirstcomposeapp.ui.navigation.GridListComponent
 import com.skyfallen.myfirstcomposeapp.ui.navigation.Home
 import com.skyfallen.myfirstcomposeapp.ui.navigation.IconComponent
 import com.skyfallen.myfirstcomposeapp.ui.navigation.ImageComponent
+import com.skyfallen.myfirstcomposeapp.ui.navigation.InfiniteTransition
 import com.skyfallen.myfirstcomposeapp.ui.navigation.InteractionSourceExample
 import com.skyfallen.myfirstcomposeapp.ui.navigation.LaunchedEffectExample
 import com.skyfallen.myfirstcomposeapp.ui.navigation.LottieAnimationProgressComponent
@@ -117,5 +123,10 @@ val menuItems = listOf(
     MenuItem(Icons.Default.Star, "ToggleControl - Component", 0, ToggleControlComponent),
     MenuItem(Icons.Default.Star, "BasicDialog - Component", 0, BasicDialogComponent),
     MenuItem(Icons.Default.Star, "DateDialog - Component", 0, DateDialogComponent),
-    MenuItem(Icons.Default.Star, "TimePickerDialog - Component", 0, TimePickerDialogComponent)
+    MenuItem(Icons.Default.Star, "TimePickerDialog - Component", 0, TimePickerDialogComponent),
+    MenuItem(Icons.Default.PlayArrow, "Animated - Visibility", 0, AnimatedVisibility),
+    MenuItem(Icons.Default.PlayArrow, "Animated - AsState", 0, AnimatedAsState),
+    MenuItem(Icons.Default.PlayArrow, "Animated - Content", 0, AnimatedContent),
+    MenuItem(Icons.Default.PlayArrow, "Animated - ContentSize", 0, AnimatedContentSize),
+    MenuItem(Icons.Default.PlayArrow, "Animation - InfiniteTransition", 0, InfiniteTransition)
 )

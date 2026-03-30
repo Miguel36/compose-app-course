@@ -157,4 +157,21 @@ object DateDialogComponent
 @Serializable
 object TimePickerDialogComponent
 
+@Serializable
+object AnimatedVisibility
+
+@Serializable
+object AnimatedAsState
+
+@Serializable
+object AnimatedContent
+
+@Serializable
+object AnimatedContentSize
+
+@Serializable
+object InfiniteTransition
+
+
+
 
