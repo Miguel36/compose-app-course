@@ -17,7 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.skyfallen.myfirstcomposeapp.components.model.NavItem
+import com.skyfallen.myfirstcomposeapp.model.NavItem
 
 @Composable
 fun MyNavigationBar() {

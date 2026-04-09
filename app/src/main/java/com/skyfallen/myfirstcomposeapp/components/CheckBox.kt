@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.skyfallen.myfirstcomposeapp.components.state.CheckBoxData
+import com.skyfallen.myfirstcomposeapp.model.CheckBoxData
 
 @Preview
 @Composable

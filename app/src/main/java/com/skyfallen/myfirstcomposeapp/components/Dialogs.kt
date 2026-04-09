@@ -45,7 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
-import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
+import com.skyfallen.myfirstcomposeapp.model.PokemonCombat
 
 @Composable
 fun MyDialog(modifier: Modifier = Modifier) {

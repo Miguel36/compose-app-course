@@ -24,8 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.skyfallen.myfirstcomposeapp.components.model.MenuItem
-import com.skyfallen.myfirstcomposeapp.components.model.menuItems
+import com.skyfallen.myfirstcomposeapp.model.MenuItem
+import com.skyfallen.myfirstcomposeapp.model.menuItems
 import kotlinx.coroutines.launch
 
 @Composable

@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavHostController
 import com.skyfallen.myfirstcomposeapp.components.MyCustomDialog
 import com.skyfallen.myfirstcomposeapp.components.MyFab
-import com.skyfallen.myfirstcomposeapp.components.model.PokemonCombat
+import com.skyfallen.myfirstcomposeapp.model.PokemonCombat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
