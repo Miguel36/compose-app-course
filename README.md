@@ -37,7 +37,7 @@ Scalable Architecture: Organized with a clean navigation graph, making it easy t
 
 ---
 
-> **Note:** This project began as a personal learning log and gradually evolved into a more structured catalog. I refactored and scaled the functionalities, designing the navigation architecture and a centralized menu to transform scattered examples into a seamless experience, making it easy to explore every component, layout, animation and advance state management (such as Side Effects, State optimization, and Interaction handling).
+> **Note:** This project began as a personal learning log and gradually evolved into a more structured catalog. I refactored and scaled the functionalities, designing the navigation architecture and a centralized menu to transform scattered examples into a seamless experience, making it easy to explore every component, layout, animation and advance state management (such as Side Effects, State optimization, and Interaction handling).
 
 
 
