@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.skyfallen.myfirstcomposeapp"
+    namespace = "com.skyfallen.composecatalogapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.skyfallen.myfirstcomposeapp"
+        applicationId = "com.skyfallen.composecatalogapp"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

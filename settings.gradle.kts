@@ -20,5 +20,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyFirstComposeApp"
+rootProject.name = "ComposeCatalogApp"
 include(":app")
